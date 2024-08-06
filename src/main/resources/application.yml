@@ -1,0 +1,15 @@
+server:
+  port: 9092
+
+spring:
+  datasource:
+    url: jdbc:sqlite:C:/Project/pet_name/database/pets_database.db
+    driver-class-name: org.sqlite.JDBC
+    username: ""
+    password: ""
+  jpa:
+    database-platform: org.hibernate.community.dialect.SQLiteDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
