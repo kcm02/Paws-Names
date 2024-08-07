@@ -18,18 +18,18 @@ public class Pet {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "AnimalName")
+    @Column(name = "animal_name")
     private String animalName;
 
-    @Column(name = "AnimalGender")
+    @Column(name = "animal_gender")
     private String animalGender;
 
-    @Column(name = "AnimalBirthYear")
+    @Column(name = "animal_birth_year")
     private Integer animalBirthYear;
 
-    @Column(name = "BreedName")
+    @Column(name = "breed_name")
     private String breedName;
 
-    @Column(name = "NameCount")
+    @Column(name = "name_count")
     private Integer nameCount;
 }
