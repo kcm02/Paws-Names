@@ -1,23 +1,30 @@
-## Pull Request 요약
+## Description
 
-<!-- 여기에 Pull Request의 요약을 작성해주세요 -->
+This PR adds [feature or functionality] to the application. The primary goal is to [briefly describe what the feature does].
 
-### 변경 사항
+### Changes
 
-<!-- 변경 사항에 대해 자세히 설명해주세요. 추가/수정/삭제한 내용을 명시하세요 -->
+- **Feature Implementation:**
+  - [Describe the key changes or additions made, e.g., "Added a new component for user profiles."]
+  - [Mention any specific files or areas impacted.]
 
-### 관련 이슈
+- **Enhancements:**
+  - [Any additional improvements made alongside the main feature.]
 
-<!-- 이 PR과 관련된 이슈 번호를 링크해주세요. 예) Resolves #123 -->
+### Related Issues
 
-### 변경된 동작
+- Resolves #123 (if applicable)
 
-<!-- 변경 사항으로 인해 어떤 동작이 변경되었는지 설명해주세요 -->
+### Changed Behavior
 
-### 테스트 방법
+- [Describe how the behavior of the application has changed, e.g., "Users can now edit their profiles."]
 
-<!-- 변경 사항을 테스트한 방법을 설명해주세요. 테스트 결과나 스크린샷을 첨부하면 더 좋습니다 -->
+### Testing Instructions
 
-### 기타 정보
+- **Steps to Test:**
+  - [Detail the steps needed to test the new feature.]
+  - [Include any test cases or scenarios.]
 
-<!-- 추가적으로 전달할 정보가 있다면 여기에 작성해주세요 -->
+### Additional Information
+
+- [Any additional context or information relevant to the PR.]
