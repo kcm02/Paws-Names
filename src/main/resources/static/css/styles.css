@@ -1,0 +1,129 @@
+/* styles.css */
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #f5f5f7; /* Light grey background for the whole page */
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff; /* Clean white background for container */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h1 {
+    color: #333;
+    font-size: 2.5em;
+    font-weight: 600;
+    margin: 0;
+}
+
+.filter {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+label {
+    font-size: 1em;
+    margin-right: 10px;
+    color: #555;
+}
+
+select {
+    font-size: 1em;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #333;
+    outline: none;
+    cursor: pointer;
+}
+
+select:focus {
+    border-color: #aaa; /* Subtle grey focus border */
+}
+
+button {
+    background-color: #007aff; /* Blue color for a more neutral look */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 12px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    display: block;
+    margin: 20px auto;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0051a2; /* Darker blue on hover */
+}
+
+.pet-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.pet-item {
+    background-color: #ffffff; /* Clean white background */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    transition: transform 0.3s ease;
+}
+
+.pet-item:hover {
+    transform: translateY(-2px);
+}
+
+.pet-item.male {
+    background-color: #e6f7ff; /* Light blue for male pets */
+}
+
+.pet-item.female {
+    background-color: #fff0f6; /* Light pink for female pets */
+}
+
+.pet-rank {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333; /* Dark grey for rank number */
+    width: 50px;
+    text-align: center;
+    background-color: #f5f5f7; /* Light grey background for rank */
+    border-radius: 50%;
+    height: 50px;
+    line-height: 50px;
+}
+
+.pet-details {
+    flex: 1;
+}
+
+.pet-name {
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+.pet-info {
+    color: #555;
+}

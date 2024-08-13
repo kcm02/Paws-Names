@@ -1,4 +1,4 @@
-package com.project.pet_name.domain;
+package com.project.pet_name.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -23,9 +23,6 @@ public class Pet {
 
     @Column(name = "animal_gender")
     private String animalGender;
-
-    @Column(name = "animal_birth_year")
-    private Integer animalBirthYear;
 
     @Column(name = "breed_name")
     private String breedName;

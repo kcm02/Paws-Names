@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Random Pet Name Generator</title>
+    <link rel="stylesheet" href="/css/random.css">
+</head>
+<body>
+<h1>Random Pet Name Generator</h1>
+<form id="randomNameForm">
+    <label for="animalGender">Select Gender:</label>
+    <select id="animalGender" name="animalGender">
+        <option value="M">Male</option>
+        <option value="F">Female</option>
+    </select>
+    <button type="submit">Generate</button>
+</form>
+
+<div id="result"></div>
+
+<script src="/js/random.js"></script>
+</body>
+</html>

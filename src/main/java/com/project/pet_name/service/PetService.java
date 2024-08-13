@@ -1,6 +1,6 @@
 package com.project.pet_name.service;
 
-import com.project.pet_name.domain.Pet;
+import com.project.pet_name.model.Pet;
 import com.project.pet_name.repository.PetRepository;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
@@ -19,6 +19,8 @@ public class PetService {
     // Runs at the same time as the app is running
     @PostConstruct
     public void init() {
+//        Pet pet = petRepository.generateRandomNameByGender("F");
+//        System.out.println(pet.getAnimalName());
     }
 
     // Method to find pet by id
@@ -27,9 +29,9 @@ public class PetService {
         return pet;
     }
 
-    // Method to retrieve a random name for each animalGender
-    public String findRandomPet(String animalGender) {
-        Pet pet = petRepository.findRandomPet(animalGender);
+    // Method to generate a random name for each animalGender
+    public String generateRandomNameByGender(String animalGender) {
+        Pet pet = petRepository.generateRandomNameByGender(animalGender);
         return pet.getAnimalName();
     }
 
