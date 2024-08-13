@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Pet List</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>Pet List</h1>
+        <nav>
+            <a href="/random-name">Random Pet Name Generator</a>
+        </nav>
+    </header>
+    <main>
+        <div class="filter">
+            <label for="genderSelect">Select Gender:</label>
+            <select id="genderSelect">
+                <option value="">All</option>
+                <option value="M">Male</option>
+                <option value="F">Female</option>
+            </select>
+        </div>
+        <div id="petList" class="pet-list"></div>
+        <div id="loadMoreContainer">
+            <button id="loadMore" onclick="loadMore()">Load More</button>
+        </div>
+    </main>
+</div>
+<script>
+    let page = 0;
+    let size = 100;
+
+    $(document).ready(function () {
+        loadMore();
+
+        $('#genderSelect').change(function () {
+            page = 0;
+            $('#petList').empty();
+            $('#loadMore').show();
+            loadMore();
+        });
+    });
+
+    function loadMore() {
+        let gender = $('#genderSelect').val();
+        let url = gender ? `/pets/gender?animalGender=${gender}&page=${page}&size=${size}` : `/pets?page=${page}&size=${size}`;
+
+        $.get(url, function (data) {
+            console.log('Response Data:', data); // 전체 응답 로그
+
+            if (Array.isArray(data.content)) {
+                data.content.forEach(function (pet, index) {
+                    console.log('Pet Data:', pet); // 각 pet 객체 로그
+
+                    let animalName = pet.animalName || 'Name Not Provided';
+                    let animalGender = pet.animalGender || 'Unknown';
+                    let breedName = pet.breedName || 'Unknown';
+                    let nameCount = pet.nameCount || 'Not Available'; // 올바른 값이 없을 때 대체 값
+
+                    let genderClass = animalGender === 'M' ? 'male' : 'female';
+
+                    $('#petList').append(`
+                        <div class="pet-item ${genderClass}">
+                            <div class="pet-rank">${page * size + index + 1}</div>
+                            <div class="pet-details">
+                                <div class="pet-name">${animalName} (${animalGender})</div>
+                            </div>
+                            <div class="pet-name-count">Name Count: ${nameCount}</div>
+                        </div>
+                    `);
+                });
+            } else {
+                console.error('Expected data.content to be an array, but received:', data.content);
+            }
+
+            if (!data.last) {
+                page++;
+            } else {
+                $('#loadMore').hide();
+            }
+        }).fail(function (jqXHR, textStatus, errorThrown) {
+            console.error('Error fetching data:', textStatus, errorThrown);
+        });
+    }
+</script>
+</body>
+</html>
