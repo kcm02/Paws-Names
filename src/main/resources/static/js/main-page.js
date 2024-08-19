@@ -2,6 +2,11 @@ let page = 0;
 let isLoading = false;
 let genderFilterValue = ''; // 초기 상태는 모든 성별
 
+
+function formatNumber(number) {
+    return number.toLocaleString(); // 숫자를 천 단위로 구분하여 문자열로 반환
+}
+
 function loadMorePets() {
     if (isLoading) return;
     isLoading = true;
@@ -33,9 +38,20 @@ function loadMorePets() {
                 name.className = 'name';
                 name.textContent = pet.animalName || 'No Name';
 
+                // 이름 옆에 숫자를 추가
+                const nameCount = document.createElement('div');
+                nameCount.className = 'name-count';
+                nameCount.textContent = pet.nameCount ? `${formatNumber(pet.nameCount)}` : '';
+
+                // 모든 항목을 하나의 컨테이너에 넣기
+                const itemContainer = document.createElement('div');
+                itemContainer.className = 'item-container';
+                itemContainer.appendChild(name);
+                itemContainer.appendChild(nameCount);
+
                 rankingItem.appendChild(rank);
                 rankingItem.appendChild(gender);
-                rankingItem.appendChild(name);
+                rankingItem.appendChild(itemContainer);
 
                 rankingList.appendChild(rankingItem);
             });
