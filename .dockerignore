@@ -1,0 +1,27 @@
+# Ignore unnecessary files and directories
+**\HELP.md
+**\.apt_generated
+**\.classpath
+**\.factorypath
+**\.project
+**\.settings
+**\.springBeans
+**\.sts4-cache
+**\.idea
+**\*.iws
+**\*.iml
+**\*.ipr
+**nbproject\private
+**nbbuild
+**dist
+**nbdist
+**.nb-gradle
+**\build
+**\.vscode
+
+# Ignore default IntelliJ IDEA and VS Code files
+.idea\shelf
+.idea\workspace.xml
+.idea\dataSources
+.idea\dataSources.local.xml
+.idea\httpRequests

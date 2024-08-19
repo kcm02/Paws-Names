@@ -52,6 +52,53 @@ nav a:hover {
     font-family: 'Montserrat', sans-serif;
 }
 
+
+/* 순위, 성별, 이름, 개수 레이블 스타일 */
+.ranking-header {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    font-weight: bold;
+    border-radius: 5px 5px 0 0; /* 상단 모서리 둥글게 */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+    margin-bottom: 10px; /* 항목과의 여백 */
+}
+
+.header-rank,
+.header-name,
+.header-count {
+    font-size: 1.2em;
+    flex: 1;
+}
+
+.header-rank {
+    width: 30px; /* 순위 열의 너비 */
+    flex: 0.45;
+}
+
+/* 모바일 화면 전용 스타일 */
+@media (max-width: 767px) { /* 768px 미만인 경우, 모바일 화면에 해당 */
+    .header-rank {
+        width: 30px; /* 순위 열의 너비 */
+        flex: 1.2;
+    }
+}
+
+.header-gender {
+    width: 50px; /* 성별 아이콘 열의 너비 */
+}
+
+.header-name {
+    flex: 2;
+    text-align: left; /* 이름을 왼쪽 정렬 */
+    margin-right: 10px; /* 오른쪽 여백 추가 */
+}
+
+.header-count {
+    width: 80px; /* 개수 열의 너비 */
+    text-align: right; /* 개수를 오른쪽 정렬 */
+}
+
 .ranking-list {
     display: flex;
     flex-direction: column;
@@ -60,23 +107,23 @@ nav a:hover {
 
 .ranking-item {
     display: flex;
-    justify-content: space-between;
+    align-items: center;
     padding: 10px 15px;
     background-color: #f9f9f9;
     border-radius: 5px;
-    align-items: center;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 .rank {
     font-size: 1.2em;
     font-weight: bold;
-    width: 40px;
+    width: 50px; /* 순위 영역의 너비 */
+    text-align: center;
 }
 
 .gender {
     font-size: 1.2em;
-    width: 50px;
+    width: 50px; /* 성별 아이콘 영역의 너비 */
     text-align: center;
 }
 
@@ -88,12 +135,25 @@ nav a:hover {
     color: #ff69b4; /* 핑크색 */
 }
 
-.name {
-    font-size: 1.2em;
-    flex-grow: 1;
-    font-family: "Kanit", sans-serif; /* 귀엽고 사각사각한 폰트 */
+.item-container {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    justify-content: space-between; /* 이름과 숫자를 오른쪽 끝으로 정렬 */
 }
 
+.name {
+    font-size: 1.2em;
+    font-family: 'Kanit', sans-serif; /* 귀엽고 사각사각한 폰트 */
+    margin-right: 5px; /* 이름과 숫자 사이의 여백 */
+}
+
+.name-count {
+    font-size: 1em;
+    color: #888;
+}
+
+/* 버튼 스타일 */
 .load-more-btn {
     display: block;
     width: 100%;
@@ -110,7 +170,6 @@ nav a:hover {
 .load-more-btn:hover {
     background-color: #d89e1a; /* 버튼 호버 색상 */
 }
-
 
 /* 이름 생성 페이지 스타일 */
 .generator-container {
@@ -198,7 +257,6 @@ footer a {
 footer a:hover {
     text-decoration: underline;
 }
-
 
 .loading {
     text-align: center;

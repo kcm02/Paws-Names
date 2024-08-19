@@ -59,7 +59,7 @@ public class PetController {
 
 
 
-    @GetMapping("/main")
+    @GetMapping("/")
     public String mainPage() {
         return "main";
     }
