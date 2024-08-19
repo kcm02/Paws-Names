@@ -1,22 +1,36 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Random Pet Name Generator</title>
-    <link rel="stylesheet" href="/css/random.css">
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
-<h1>Random Pet Name Generator</h1>
-<form id="randomNameForm">
-    <label for="animalGender">Select Gender:</label>
-    <select id="animalGender" name="animalGender">
-        <option value="M">Male</option>
-        <option value="F">Female</option>
-    </select>
-    <button type="submit">Generate</button>
-</form>
+<header>
+    <h1>Paws & Names</h1>
+    <nav>
+        <a href="/main">Top Ranking</a>
+        <a href="/random-name">Random Generator</a>
+    </nav>
+</header>
 
-<div id="result"></div>
+<section class="generator-container">
+    <h2>Generate a Random Name</h2>
+    <div class="gender-buttons">
+        <button onclick="generateName('M')">Male</button>
+        <button onclick="generateName('F')">Female</button>
+    </div>
+    <div id="random-name-display" class="random-name-display"></div>
+</section>
 
-<script src="/js/random.js"></script>
+<footer>
+    <p>&copy; 2024 Pet Name Ranking</p>
+    <p>Developed by <a href="https://github.com/kcm02" target="_blank">kcm02</a></p>
+    <p>Data sourced from <a href="https://opendata.cityofnewyork.us/" target="_blank">NYC Open Data</a></p>
+</footer>
+
+
+<script src="/js/random-name.js"></script>
 </body>
 </html>
