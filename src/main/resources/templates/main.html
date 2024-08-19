@@ -1,89 +1,47 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Pet List</title>
-    <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Name Ranking</title>
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
-<div class="container">
-    <header>
-        <h1>Pet List</h1>
-        <nav>
-            <a href="/random-name">Random Pet Name Generator</a>
-        </nav>
-    </header>
-    <main>
-        <div class="filter">
-            <label for="genderSelect">Select Gender:</label>
-            <select id="genderSelect">
-                <option value="">All</option>
-                <option value="M">Male</option>
-                <option value="F">Female</option>
-            </select>
-        </div>
-        <div id="petList" class="pet-list"></div>
-        <div id="loadMoreContainer">
-            <button id="loadMore" onclick="loadMore()">Load More</button>
-        </div>
-    </main>
+<header>
+    <h1>Paws & Names</h1>
+    <nav>
+        <a href="/main">Top Ranking</a>
+        <a href="/random-name">Random Generator</a>
+    </nav>
+</header>
+
+<section class="ranking-container">
+    <h2>Top 30 Pet Names</h2>
+
+    <!-- 성별 필터 버튼 추가 -->
+    <div class="gender-buttons">
+        <button id="allButton">All</button>
+        <button id="maleButton">Male</button>
+        <button id="femaleButton">Female</button>
+    </div>
+
+    <div id="ranking-list" class="ranking-list">
+        <!-- 이곳에 JS로 데이터가 추가됩니다 -->
+    </div>
+    <button id="load-more-btn" class="load-more-btn">Load More</button>
+</section>
+
+<footer>
+    <p>&copy; 2024 Pet Name Ranking</p>
+    <p>Developed by <a href="https://github.com/kcm02" target="_blank">kcm02</a></p>
+    <p>Data sourced from <a href="https://opendata.cityofnewyork.us/" target="_blank">NYC Open Data</a></p>
+</footer>
+
+
+<div id="loading" class="loading" style="display:none;">
+    Loading...
 </div>
-<script>
-    let page = 0;
-    let size = 100;
 
-    $(document).ready(function () {
-        loadMore();
-
-        $('#genderSelect').change(function () {
-            page = 0;
-            $('#petList').empty();
-            $('#loadMore').show();
-            loadMore();
-        });
-    });
-
-    function loadMore() {
-        let gender = $('#genderSelect').val();
-        let url = gender ? `/pets/gender?animalGender=${gender}&page=${page}&size=${size}` : `/pets?page=${page}&size=${size}`;
-
-        $.get(url, function (data) {
-            console.log('Response Data:', data); // 전체 응답 로그
-
-            if (Array.isArray(data.content)) {
-                data.content.forEach(function (pet, index) {
-                    console.log('Pet Data:', pet); // 각 pet 객체 로그
-
-                    let animalName = pet.animalName || 'Name Not Provided';
-                    let animalGender = pet.animalGender || 'Unknown';
-                    let breedName = pet.breedName || 'Unknown';
-                    let nameCount = pet.nameCount || 'Not Available'; // 올바른 값이 없을 때 대체 값
-
-                    let genderClass = animalGender === 'M' ? 'male' : 'female';
-
-                    $('#petList').append(`
-                        <div class="pet-item ${genderClass}">
-                            <div class="pet-rank">${page * size + index + 1}</div>
-                            <div class="pet-details">
-                                <div class="pet-name">${animalName} (${animalGender})</div>
-                            </div>
-                            <div class="pet-name-count">Name Count: ${nameCount}</div>
-                        </div>
-                    `);
-                });
-            } else {
-                console.error('Expected data.content to be an array, but received:', data.content);
-            }
-
-            if (!data.last) {
-                page++;
-            } else {
-                $('#loadMore').hide();
-            }
-        }).fail(function (jqXHR, textStatus, errorThrown) {
-            console.error('Error fetching data:', textStatus, errorThrown);
-        });
-    }
-</script>
+<script src="/js/main-page.js"></script>
 </body>
 </html>
